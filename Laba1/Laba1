@@ -1,0 +1,94 @@
+print("hello word")
+
+
+IIN = input()
+
+IIN2 = "02010351234"
+
+IIN3  = "85080831073"
+
+Dlina = len(IIN)
+
+Array = [0]*Dlina
+i =0
+p =1
+while i<Dlina: 
+    # print(i)
+    Lev = IIN[:p]
+    # print("Lev" , Lev)
+    if len(Lev) ==1:
+       prav = Lev
+    else:
+       prav = Lev[p-1:]    
+    # print("prav" , prav)
+    Array[i] = prav
+    i+=1
+    p += 1
+
+i = 0
+S = 0
+c = 0
+k = 0
+Hodka = True
+while Hodka:
+    while i<Dlina:
+        # print("nt(Array[i])" , int(Array[i]))
+        # print("i=" , i)
+        # print("Array[i]" , Array[i])
+        S += (1+i)*int(Array[i])
+        # print("s = i*Array[i]:" , S)
+        i+=1
+    
+    c = int(S/11)
+
+    k = S-c*11
+    
+    # print(k)
+    
+    if k >= 10:
+        
+        Hodka = False
+        perv = ""
+        vtor = -1
+        l = 0
+        Svodka = 0
+        
+
+        while Svodka != 2:
+            l = 0
+            perv = Array[0]
+            while l < Dlina:
+                if l+1 >= Dlina:
+                    Array[0] = perv
+                else:
+                    perv, Array[l+1] = Array[l+1], perv
+                l += 1
+            Svodka += 1 
+        i=0 
+        S=0      
+        while i < Dlina:
+        
+            S += (1+i)*int(Array[i]) 
+            print("S=" , S)
+            i +=1
+            
+        c = int(S/11)
+        k = S-c*11
+        print ("k2 = " , k)
+            
+                    
+    elif k <10:
+        kontrol = k
+        Hodka = False
+      
+print ("k = " , k)      
+i = 0  
+while i < len(Array):
+    print("itog Array:" , Array[i])
+    i+=1
+        
+        
+        
+# temp = Array[l+1]
+# Array[l+1] = perv
+# perv = temp
