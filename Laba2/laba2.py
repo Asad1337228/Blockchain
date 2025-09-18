@@ -21,6 +21,7 @@ iin = str(input())
 i = 0
 hashok = poluchitHash(iin)
 print(hashok)
+naidenoSDvumya = False
 while True:
     # print(str(iin))
     IINHASH = iin + "+" +str(i)
@@ -28,15 +29,19 @@ while True:
     hash_znach = poluchitHash((IINHASH))   
     # if hash_znach[:1] =="0" and hash_znach[:2] !="00"  :
     #     print("С одним нулём",hash_znach)  
-    # if hash_znach[:3] =="000":
-    #     print("С тремя нулями",hash_znach)
-    #     break  
-    if hash_znach[:2] == "00":  
+    if hash_znach[:3] =="000":
+        print("С тремя нулями",hash_znach)
         print("Найдено!")
+        print("Входное значение:", iin)
+        print("Количество шагов", i)
+        print(IINHASH)
+        break  
+    if hash_znach[:2] == "00" and naidenoSDvumya == False:  
+        print("Найдено! c двумя нулями")
         print("Входное значение:", iin)
         print("Хэш:", hash_znach)
         print("Количество шагов", i)
-        break
+        print(IINHASH)
+        naidenoSDvumya = True
     i += 1
     
-print(IINHASH)
